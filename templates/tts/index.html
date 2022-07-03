@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block con %}
+    <h1><b>TTS</b></h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row mt-5">
+            <textarea style="height: 500px;" class="form-control" name="text">{{text}}</textarea>
+        </div>
+    
+        <div class="row mt-3">
+            <div class="col-sm-4">
+                <select name="tts" class="form-select">
+                    <option value="en">영어</option>
+                    <option value="ko">한국어</option>
+                    <option value="ja">일본어</option>
+                </select>
+            </div>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="mp3"></textarea>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-6 text-center">
+                <button class="btn btn-dark" style="width: 50%;">변환</button>
+            </div>
+            <div class="col-sm-6 text-center">
+                <a href="/media/{{ tts }}.mp3" download><button class="btn btn-dark" style="width: 50%;" type="button">다운</button></a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

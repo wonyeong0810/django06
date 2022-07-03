@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block noauth %}
+<h1><b>회원가입</b></h1>
+
+<form method="post" enctype="multipart/form-data" name="registForm">
+    {% csrf_token %}
+    <div class="mb-3 mt-5">
+        <label class="form-label">USERNAME</label>
+        <input type="text" class="form-control" name="uname">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PASSWORD</label>
+        <input type="password" class="form-control" name="upass">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PASSWORD CHECK</label>
+        <input type="password" class="form-control" name="ckpass">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">CONTENT</label>
+        <textarea class="form-control" name="con"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">USERPIC</label>
+        <input type="file" class="form-control" name="pic">
+    </div>
+    <div class="mt-4 text-end">
+        <button class="btn btn-dark" style="font-weight: bold;" type="button" onclick="check()">회원가입</button> 
+    </div>
+</form>
+
+<script>
+    function check(){
+        r = document.registForm;
+        if(!r.uname.value){
+          alert("username을 입력해주세요!!");  
+        }else if(!r.upass.value ){
+            alert("password를 입력해주세요!!")
+        }else if(r.upass.value != r.ckpass.value){
+            alert("password가 일치하지 않습니다!!")
+        }else{
+            r.submit();
+        }
+        
+    }
+</script>
+{% endblock %}
