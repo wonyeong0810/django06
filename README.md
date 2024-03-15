@@ -4,4 +4,4 @@ config폴더 -> url, setting |
 media폴더 -> 유저 관련 이미지, tts | 
 templates폴더 - > html 파일들 | 
 trans폴더 -> 번역기 코드 | 
-tts폴더 -> 텍스트 음성 변환 관련 코드 |
+tts폴더 -> 텍스트 음성 변환 관련 코드
